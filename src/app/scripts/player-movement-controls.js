@@ -1,22 +1,21 @@
-const movement = (keyPressed, sprite) =>{
+const movement = (keyPressed, sprite, vector) =>{
   //movement
-  if (keyPressed('left') && sprite.x >= 0){
-    sprite.dx = -sprite.speed;
-  } else if (keyPressed('right') && sprite.x <= 600 - sprite.width) {
+  if (keyPressed('left')){
+    vector.x -= sprite.speed;
+  } else if (keyPressed('right')) {
     // right arrow pressed
-    sprite.dx = sprite.speed;
-  }  else {
-    sprite.dx = 0;
+    vector.x += sprite.speed;
   }
-  if (keyPressed('up') && (sprite.y >= 300)) {
+  if (keyPressed('up')) {
     // up arrow pressed
-    sprite.dy = -sprite.speed;
-  } else if (keyPressed('down') && (sprite.y < 450 - sprite.height)) {
+    vector.y -= sprite.speed;
+  } else if (keyPressed('down')) {
     // down arrow pressed
-    sprite.dy = sprite.speed;
-  } else {
-    sprite.dy = 0;
+    vector.y += sprite.speed;
   }
+
+  sprite.x = vector.x;
+  sprite.y = vector.y;
 }
 
 export default movement;
