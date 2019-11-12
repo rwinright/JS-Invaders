@@ -6,6 +6,7 @@ const shooty = (player, bulletPool) => {
       x: player.x + player.width/2,
       y: player.y,
       color: player.gunStatus ? "green" : "red",
+      bulletType: player.gunStatus,
       width: 10,
       anchor: {x:0.5, y:0.5},
       height: 5,
@@ -19,13 +20,14 @@ const shooty = (player, bulletPool) => {
   }
   //Track objects that have not expired.
   let b = bulletPool.getAliveObjects();
-
+  
   //Set the "Time To Live" to 0 to refresh the pool count.
   b.forEach((blt) => {
     blt.rotation += 2
     if (blt.y <= 0 /*|| blt.collidesWith(player) Change to enemy block later */) {
       blt.ttl = 0; //Destroy the bullet
     }
+    console.log(blt.bulletType);
   })
 }
 
