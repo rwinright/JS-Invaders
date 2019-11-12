@@ -1,4 +1,4 @@
-import { keyPressed, Vector } from 'kontra';
+import { keyPressed } from 'kontra';
 
 const movement = (player) => {
   //movement
