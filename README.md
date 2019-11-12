@@ -10,10 +10,10 @@ _Built with the awesome [Kontra JS](https://straker.github.io/kontra/) game engi
 
 - Questions will show up like the following: 
 
-(“1” !== 1)<br>
-(“1" == 1)<br>
-(1 == 1)<br>
-(!!(10000))<br>
+(“1” !== 1)<br><hr>
+(“1" == 1)<br><hr>
+(1 == 1)<br><hr>
+(!!(10000))<br><hr>
 ((Math.abs(-3) < 2) || (0.3+0.2 === 0.1))<br>
 
 - Each one will equate to a certain value of true or false and the bullet fired at it will either be a right or wrong answer.<br>
