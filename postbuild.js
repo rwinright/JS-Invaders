@@ -39,5 +39,8 @@ archive.append(
     name: 'index.html'
   }
 )
+// archive.append(
+//   fs.createReadStream("./")
+// )
 
 archive.finalize()

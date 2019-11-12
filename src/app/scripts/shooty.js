@@ -3,7 +3,7 @@ import { keyPressed } from 'kontra';
 const shooty = (player, bulletPool) => {
   if (keyPressed('x')) {
     bulletPool.get({
-      x: player.x + 7,
+      x: player.x + 8,
       y: player.y,
       color: player.gunStatus ? "green" : "red",
       width: 10,
@@ -23,7 +23,6 @@ const shooty = (player, bulletPool) => {
   //Set the "Time To Live" to 0 to refresh the pool count.
   b.forEach((blt) => {
     blt.rotation += 2
-    console.log(blt.rotation)
     if (blt.y <= 0 /*|| blt.collidesWith(player) Change to enemy block later */) {
       blt.ttl = 0; //Destroy the bullet
     }

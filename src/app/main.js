@@ -1,7 +1,8 @@
-import { init, initPointer, initKeys, pointer, Sprite, GameLoop, keyPressed, Pool } from 'kontra';
+import { init, initPointer, initKeys, pointer, Sprite, GameLoop, Pool, loadImage } from 'kontra';
 import pointerTools from './scripts/pointer-tools';
 import movement from './scripts/player-movement-controls';
 import shooty from './scripts/shooty';
+import textMaker from './scripts/textMaker';
 
 const { canvas, context } = init();
 initPointer();
@@ -13,7 +14,7 @@ let player = Sprite({
   color: 'brown',  // fill color of the player rectangle
   width: 20,     // width and height of the player rectangle
   height: 40,
-  speed: 3,
+  speed: 2.5,
   gunStatus: true // boolean value for the gun colors/functionality. true = green
 });
 //Clamp player to the game screen
@@ -52,7 +53,11 @@ let loop = GameLoop({
     bulletPool.render();
     //Pointer tools
     pointerTools(context, pointer, canvas);
+    //GUI and on-screen text;
+    textMaker(context, 20, 20, `dx: ${player.dx.toFixed(2)}`, 20);
+    textMaker(context, 20, 40, `dy: ${player.dy.toFixed(2)}`, 20);
   }
 });
-
-loop.start();    // start the game
+// loadImage('../assets/redship.png').then(()=>{
+  loop.start();    // start the game
+// })
