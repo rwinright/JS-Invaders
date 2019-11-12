@@ -1,26 +1,44 @@
 # JS Invaders
 
-### A simple game focused on training newer developers for quick acquisition of programming logic outcomes.
+### An arcade-style space-shooter game based on training newer developers for quick acquisition of programming logic outcomes through micro-sized coding questions.
+<hr>
 
 _Built with the awesome [Kontra JS](https://straker.github.io/kontra/) game engine and as much ES6 as I can fit into a program._
 
-- A Galaga/Space Invaders rip off, and it’ll basically just be a slightly-more-interesting version of flash cards by the time I’m done with it. At least, for version 1.0.<br>
-- “Enemies” with little “questions” on them will appear, and you have to change your ship’s guns to fire a “truthy” (green) or “falsy” (red) bullet at it to gain points (or something)<br>
+## Basis of the game
+- “Enemies” with argument-style coding questions on them will appear from the top of the screen at random. You have to change your ship’s bullet color to fire a “truthy” (green) or “falsy” (red) bullet at the question to gain points and/or eliminate the enemy.<br>
+
+- Questions will show up like the following: 
+
 (“1” !== 1)<br>
 (“1" == 1)<br>
 (1 == 1)<br>
 (!!(10000))<br>
 ((Math.abs(-3) < 2) || (0.3+0.2 === 0.1))<br>
 
+- Each one will equate to a certain value of true or false and the bullet fired at it will either be a right or wrong answer.<br>
+- 3 Wrong answers in a single level and it's *GAME OVER*
 
-##TODOS
+
+## Controls
+- Arrow keys to move your ship/avoid "enemies"
+- X to shoot
+- Z to switch your bullets
+  * Green bullets are truthy
+  * Red bullets are falsy
+
+
+## TODOS
 
 1. Need parallax scrolling background. Prefer the star positions to be randomized and scroll top-to-bottom.
-2. Instruction manual in the website
+2. Instruction manual in the website.
 3. I need some mobile responsive styling to resize the canvas for mobile phones. 
-4. Build out a page in the app for a leaderboard (2.0 objective)
+4. Build out a page in the app for a leaderboard (2.0 objective).
 5. Need more JS argument-style questions!
-  + Matter of fact, I need a database full of them!
+  - Matter of fact, I need a database full of them?
+  - If I get that, I need to randomly pluck results out of said database.
 6. ... More ideas/programming languages support?
-7. Need a graphic assets overhaul
+7. Need a graphic assets overhaul.
 8. Need sound effects!
+9. Difficulty levels.
+10. Levels in general... 
