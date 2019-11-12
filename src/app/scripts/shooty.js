@@ -3,7 +3,7 @@ import { keyPressed } from 'kontra';
 const shooty = (player, bulletPool) => {
   if (keyPressed('x')) {
     bulletPool.get({
-      x: player.x + 8,
+      x: player.x + player.width/2,
       y: player.y,
       color: player.gunStatus ? "green" : "red",
       width: 10,
