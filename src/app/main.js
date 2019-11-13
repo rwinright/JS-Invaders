@@ -3,6 +3,8 @@ import pointerTools from './scripts/pointer-tools';
 import movement from './scripts/player-movement-controls';
 import shooty from './scripts/shooty';
 import textMaker from './scripts/textMaker';
+import enemyInvaderController from './scripts/enemyInvaders'
+//Assets
 import ship from './assets/redship.png';
 
 let player_image = new Image();
@@ -27,11 +29,20 @@ player_image.src = ship;
   //Clamp player to the game screen
   player.position.clamp(0, canvas.height / 2 + player.height, canvas.width - player.width, canvas.height - player.height);
 
+  //The bullet pool. 
   let bulletTimer = 0;
-  let bulletPool = Pool({
+  const bulletPool = Pool({
     create: Sprite,
     maxSize: 3 //Adjust this to set the number of pooled players on the screen at once. 
   });
+
+  //
+  let enemyTimer = 0;
+  const enemyPool = Pool({
+    create: Sprite,
+    maxSize: 1 //Adjust this to set the number of pooled enemies on the screen at once. 
+  });
+
   let loop = GameLoop({
     update: function () {
       //Movement crap
@@ -46,6 +57,27 @@ player_image.src = ship;
       //Render all active things in pool
       bulletPool.update();
 
+      //Count the time between enemy spawn up. 
+      enemyTimer++;
+      if(enemyTimer >= 60){ //The number here should be variable based on difficulty and/or number of enemies eliminated.
+        //Randomly snatch question from array
+        //Eliminate question in the array
+        //send it to the enemy invader function to spawn.
+        let dummyData = [{ //Temporary database of questions. Probably pass this as an arg.
+          question: "(2)",
+          answer: true
+        }, {
+          question: "(2 + 1 > 3)",
+          answer: false
+        }];
+
+        enemyInvaderController(dummyData[0], enemyPool, canvas)
+        enemyTimer = 0;
+      }
+
+      //update enemies
+      enemyPool.update();
+
       // blocks.collidesWith(player) ? (console.log("Collided with player"), blocks.dy = 0) : blocks.dy = 2;
 
       // if(blocks.y >= canvas.height){
@@ -57,6 +89,7 @@ player_image.src = ship;
     render: function () {
       player.render();
       bulletPool.render();
+      enemyPool.render();
       //Pointer tools
       pointerTools(context, pointer, canvas);
       //GUI and on-screen text;
