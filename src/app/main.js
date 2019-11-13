@@ -1,4 +1,4 @@
-import { init, initPointer, initKeys, pointer, Sprite, GameLoop, Pool, loadImage, onLoad } from 'kontra';
+import { init, initPointer, initKeys, pointer, Sprite, GameLoop, Pool, loadImage, onLoad, keyPressed } from 'kontra';
 import pointerTools from './scripts/pointer-tools';
 import movement from './scripts/player-movement-controls';
 import shooty from './scripts/shooty';
@@ -11,11 +11,10 @@ let player_image = new Image();
 player_image.src = ship;
 
 (player_image).onload = () => {
-
-
   const { canvas, context } = init();
   initPointer();
   initKeys();
+ 	let debug = false;
   let player = Sprite({
     x: canvas.width / 2 - 30,        // starting x,y position of the player
     y: 400,
@@ -45,7 +44,7 @@ player_image.src = ship;
 
   let loop = GameLoop({
     update: function () {
-      //Movement crap
+      //Player movement and shooting
       movement(player);
       player.update();
 
@@ -56,7 +55,8 @@ player_image.src = ship;
       }
       //Render all active things in pool
       bulletPool.update();
-
+      
+			//Enemy spawning
       //Count the time between enemy spawn up. 
       enemyTimer++;
       if(enemyTimer >= 60){ //The number here should be variable based on difficulty and/or number of enemies eliminated.
@@ -85,16 +85,25 @@ player_image.src = ship;
       //   //Randomly spawn between random number and the width of the canvas
       //   blocks.x = Math.floor(Math.random() * canvas.width) + 1
       // }
+
+      //Toggle debug tools
+      let pressedState = false;
+      if(keyPressed("d") && !pressedState){
+      	pressedState = true;
+      	debug = !debug;
+      }
     },
     render: function () {
       player.render();
       bulletPool.render();
       enemyPool.render();
       //Pointer tools
-      pointerTools(context, pointer, canvas);
-      //GUI and on-screen text;
-      textMaker(context, 20, 20, `dx: ${player.dx.toFixed(2)}`, 20);
-      textMaker(context, 20, 40, `dy: ${player.dy.toFixed(2)}`, 20);
+			if(debug){
+      	pointerTools(context, pointer, canvas);
+      	//GUI and on-screen text;
+      	textMaker(context, 20, 20, `dx: ${player.dx.toFixed(2)}`, 20);
+      	textMaker(context, 20, 40, `dy: ${player.dy.toFixed(2)}`, 20);
+      }
     }
   });
   loop.start();
