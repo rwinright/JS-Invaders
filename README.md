@@ -43,3 +43,4 @@ _Built with the awesome [Kontra JS](https://straker.github.io/kontra/) game engi
 9. Difficulty levels.
 10. Levels in general... 
 11. Pause menu/capability
+12. Fix the webpack to pack images. ...Perhaps in Base 64 format?
