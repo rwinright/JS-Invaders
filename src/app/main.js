@@ -6,6 +6,7 @@ import textMaker from './scripts/textMaker';
 import enemyInvaderController from './scripts/enemyInvaders'
 //Assets
 import ship from './assets/redship.png';
+import bulletCollision from './scripts/checkBulletEnemyCollision';
 
 let player_image = new Image();
 player_image.src = ship;
@@ -37,7 +38,7 @@ player_image.src = ship;
 
   //
   let enemyTimer = 0;
-  const enemyPool = Pool({
+  let enemyPool = Pool({
     create: Sprite,
     maxSize: 1 //Adjust this to set the number of pooled enemies on the screen at once. 
   });
@@ -71,12 +72,15 @@ player_image.src = ship;
           answer: false
         }];
 
-        enemyInvaderController(dummyData[0], enemyPool, canvas)
+        enemyInvaderController(dummyData[0], enemyPool, canvas, player)
         enemyTimer = 0;
       }
 
       //update enemies
       enemyPool.update();
+
+      //Check bullet/enemy collisions
+      bulletCollision(enemyPool, bulletPool, player);
 
       // blocks.collidesWith(player) ? (console.log("Collided with player"), blocks.dy = 0) : blocks.dy = 2;
 

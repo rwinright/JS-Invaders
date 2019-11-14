@@ -1,6 +1,4 @@
-import { Vector } from 'kontra';
-
-const enemyInvaderController = (question, enemyPool, canvas) => {
+const enemyInvaderController = (question, enemyPool, canvas, player) => {
 
   enemyPool.get({
     x: 0, //Randomly set this with a random value generator
@@ -25,6 +23,7 @@ const enemyInvaderController = (question, enemyPool, canvas) => {
       if(invader.y >= canvas.height - invader.height/2){
         invader.y = 0;
         invader.x = Math.floor(Math.random() * canvas.width);
+
         //Increase the speed?
         if(invader.dy < 5){
           invader.dy += 0.5
@@ -32,9 +31,12 @@ const enemyInvaderController = (question, enemyPool, canvas) => {
             invader.dx = Math.floor(Math.random() * -3) + 2
           }
         }
+        //Add the question logic to the invaders
+        invader.question = question.question;
+        invader.questionType = question.answer;
       }
     
-  })
+  });
 
 }
 

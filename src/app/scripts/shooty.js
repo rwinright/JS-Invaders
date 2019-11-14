@@ -7,9 +7,9 @@ const shooty = (player, bulletPool) => {
       y: player.y,
       color: player.gunStatus ? "green" : "red",
       bulletType: player.gunStatus,
-      width: 10,
+      width: 5,
       anchor: {x:0.5, y:0.5},
-      height: 5,
+      height: 20,
       dy: -4,
       ttl: Infinity,
     })
@@ -23,11 +23,9 @@ const shooty = (player, bulletPool) => {
   
   //Set the "Time To Live" to 0 to refresh the pool count.
   b.forEach((blt) => {
-    blt.rotation += 2
     if (blt.y <= 0 /*|| blt.collidesWith(player) Change to enemy block later */) {
       blt.ttl = 0; //Destroy the bullet
     }
-    console.log(blt.bulletType);
   })
 }
 
