@@ -4,17 +4,21 @@ import movement from './scripts/player-movement-controls';
 import shooty from './scripts/shooty';
 import textMaker from './scripts/textMaker';
 import enemyInvaderController from './scripts/enemyInvaders'
+
 //Assets
 import ship from './assets/redship.png';
 import bulletCollision from './scripts/checkBulletEnemyCollision';
 
+//Attach assets to the images
 let player_image = new Image();
 player_image.src = ship;
 
 (player_image).onload = () => {
   const { canvas, context } = init();
+
   initPointer();
   initKeys();
+
  	let debug = false;
   let player = Sprite({
     x: canvas.width / 2 - 30,        // starting x,y position of the player
@@ -26,6 +30,7 @@ player_image.src = ship;
     image: player_image,
     gunStatus: true // boolean value for the gun colors/functionality. true = green
   });
+
   //Clamp player to the game screen
   player.position.clamp(0, canvas.height / 2 + player.height, canvas.width - player.width, canvas.height - player.height);
 
@@ -34,7 +39,7 @@ player_image.src = ship;
   const bulletPool = Pool({
     create: Sprite,
     size: 1,
-    maxSize: 4 //Adjust this to set the number of pooled players on the screen at once. 
+    maxSize: 2 //Adjust this to set the number of pooled players on the screen at once. 
   });
 
   //
@@ -63,6 +68,8 @@ player_image.src = ship;
       //Count the time between enemy spawn up. 
       enemyTimer++;
       if(enemyTimer >= 60){ //The number here should be variable based on difficulty and/or number of enemies eliminated.
+
+        // TODO - question dumping into the enemy invader section.
         //Randomly snatch question from array
         //Eliminate question in the array
         //send it to the enemy invader function to spawn.
@@ -84,14 +91,6 @@ player_image.src = ship;
       //Check bullet/enemy collisions
       bulletCollision(enemyPool, bulletPool, player);
 
-      // blocks.collidesWith(player) ? (console.log("Collided with player"), blocks.dy = 0) : blocks.dy = 2;
-
-      // if(blocks.y >= canvas.height){
-      //   blocks.y = 0;
-      //   //Randomly spawn between random number and the width of the canvas
-      //   blocks.x = Math.floor(Math.random() * canvas.width) + 1
-      // }
-
       //Toggle debug tools
       let pressedState = false;
       if(keyPressed("d") && !pressedState){
@@ -99,11 +98,11 @@ player_image.src = ship;
       	debug = !debug;
       }
     },
-    render: function () {
+    render: function () { //This function updates the sprites in the view. 
       player.render();
       bulletPool.render();
       enemyPool.render();
-      //Pointer tools
+      //Pointer/debug tools
 			if(debug){
       	pointerTools(context, pointer, canvas);
       	//GUI and on-screen text;
