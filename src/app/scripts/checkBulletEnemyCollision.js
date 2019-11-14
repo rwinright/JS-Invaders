@@ -16,13 +16,14 @@ const bulletCollision = (invaderPool, bulletPool, player) => {
   if(bullets.length){
     for(let j = 0, bullet; bullet = bullets[j]; j++){
       for(let i = 0, invader; invader = invaders[i]; i++){
+        console.log(`invader question: ${invader.question}`)
         if(bullet.collidesWith(invader)){
-          console.log(`Bullet ${j} hit invader ${i}`)
+          bullet.ttl = 0;
           if(bullet.bulletType === invader.questionType){
             invader.ttl = 0;
-            console.log("Bullet and invader are good")
+            // console.log("Bullet and invader are good")
           } else {
-            console.log("Nope")
+            // console.log("Nope")
           }
         }
       }

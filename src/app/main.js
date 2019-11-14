@@ -33,14 +33,16 @@ player_image.src = ship;
   let bulletTimer = 0;
   const bulletPool = Pool({
     create: Sprite,
-    maxSize: 3 //Adjust this to set the number of pooled players on the screen at once. 
+    size: 1,
+    maxSize: 4 //Adjust this to set the number of pooled players on the screen at once. 
   });
 
   //
   let enemyTimer = 0;
   let enemyPool = Pool({
     create: Sprite,
-    maxSize: 1 //Adjust this to set the number of pooled enemies on the screen at once. 
+    size: 1, //Adjust this to set the number of pooled enemies on the screen at once. 
+    maxSize: 2 //This is the number of these objects that can be on the screen at once. 
   });
 
   let loop = GameLoop({

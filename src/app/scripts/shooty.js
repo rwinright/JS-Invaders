@@ -1,6 +1,11 @@
 import { keyPressed } from 'kontra';
 
 const shooty = (player, bulletPool) => {
+
+  if(keyPressed("z")){ //Set gun to truthy or falsy 
+    player.gunStatus = !player.gunStatus
+  }
+
   if (keyPressed('x')) {
     bulletPool.get({
       x: player.x + player.width/2,
@@ -15,9 +20,6 @@ const shooty = (player, bulletPool) => {
     })
   }
 
-  if(keyPressed("z")){ //Set gun to truthy or falsy 
-    player.gunStatus = !player.gunStatus
-  }
   //Track objects that have not expired.
   let b = bulletPool.getAliveObjects();
   
