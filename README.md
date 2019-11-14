@@ -32,13 +32,14 @@ _Built with the awesome [Kontra JS](https://straker.github.io/kontra/) game engi
 
 1. Need parallax scrolling background. Prefer the star positions to be randomized and scroll top-to-bottom.
 2. Instruction manual in the website.
-3. I need some mobile responsive styling to resize the canvas for mobile phones. 
+3. I need some (better) mobile responsive styling to resize the canvas for mobile phones. 
 4. Build out a page in the app for a leaderboard (2.0 objective).
 5. Need more JS argument-style questions!
   - Matter of fact, I need a database full of them?
   - If I get that, I need to randomly pluck results out of said database.
-6. ... More ideas/programming languages support?
-7. Need a graphic assets overhaul.
+6. ... More ideas/programming languages support for questions?
+7. Need a graphical assets overhaul.
 8. Need sound effects!
 9. Difficulty levels.
 10. Levels in general... 
+11. Pause menu/capability
