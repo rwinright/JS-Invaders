@@ -5,6 +5,9 @@
 
 _Built with the awesome [Kontra JS](https://straker.github.io/kontra/) game engine and as much ES6 as I can fit into a program._
 
+## Deployment Preview
+If you want to have a look at the game as it's being built and play with it, it's currently deployed [Here](eloquent-hypatia-cf6312.netlify.com)
+
 ## Basis of the game
 - “Enemies” with argument-style coding questions on them will appear from the top of the screen at random. You have to change your ship’s bullet color to fire a “truthy” (green) or “falsy” (red) bullet at the question to gain points and/or eliminate the enemy.<br>
 
