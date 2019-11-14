@@ -30,13 +30,13 @@ If you want to have a look at the game as it's being built and play with it, it'
   * Green bullets are truthy
   * Red bullets are falsy
 
-  ## For anyone looking to contribute
+ ## For anyone looking to contribute
 
-  1. Fork (or clone) the project.
-  2. NPM Install to get the required node modules.
-  3. Run `NPM Run Build` from the terminal to launch a server.
-  4. Submit your pull request and I'll review it and maybe add it in or at least give feedback on it! 
-  5. Have fun!
+ 1. Fork (or clone) the project.
+ 2. NPM Install to get the required node modules.
+ 3. Run `NPM Run Build` from the terminal to launch a server.
+ 4. Submit your pull request and I'll review it and maybe add it in or at least give feedback on it! 
+ 5. Have fun!
 
 
 ## TODOS
