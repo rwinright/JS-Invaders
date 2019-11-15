@@ -1,8 +1,6 @@
-
-
 const textMaker = (context, x, y, text, size) => {
-  
-  if(!size){
+
+  if (!size) {
     size = 10;
   }
   context.fillStyle = 'white';

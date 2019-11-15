@@ -111,7 +111,7 @@ let enemies;
       //Render text on enemies.
       if(enemies){
         enemies.map((e)=> {
-          textMaker(context, e.x, e.y, e.question, 20);
+          textMaker(context, e.x - 17.5, e.y + e.height - 14, e.question, 20); //The text didn't want to play well... I'll have to figure this out later. 
         })
       }
 
