@@ -13,6 +13,9 @@ import bulletCollision from './scripts/checkBulletEnemyCollision';
 let player_image = new Image();
 player_image.src = ship;
 
+//Get all enemies.
+let enemies;
+
 (player_image).onload = () => {
   const { canvas, context } = init();
 
@@ -81,12 +84,14 @@ player_image.src = ship;
           answer: false
         }];
 
-        enemyInvaderController(dummyData[0], enemyPool, canvas, player)
+        enemyInvaderController(dummyData[0], enemyPool, canvas, context)
         enemyTimer = 0;
       }
 
       //update enemies
       enemyPool.update();
+      //Dump enemies to global for rendering text on them.
+      enemies = enemyPool.getAliveObjects();
 
       //Check bullet/enemy collisions
       bulletCollision(enemyPool, bulletPool, player);
@@ -102,6 +107,14 @@ player_image.src = ship;
       player.render();
       bulletPool.render();
       enemyPool.render();
+
+      //Render text on enemies.
+      if(enemies){
+        enemies.map((e)=> {
+          textMaker(context, e.x, e.y, e.question, 20);
+        })
+      }
+
       //Pointer/debug tools
 			if(debug){
       	pointerTools(context, pointer, canvas);

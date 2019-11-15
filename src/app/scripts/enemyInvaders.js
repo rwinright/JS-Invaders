@@ -1,4 +1,4 @@
-const enemyInvaderController = (question, enemyPool, canvas, player) => {
+const enemyInvaderController = (question, enemyPool, canvas) => {
 
   enemyPool.get({
     x: Math.floor(Math.random() * canvas.width), //Randomly set this with a random value generator
@@ -25,12 +25,12 @@ const enemyInvaderController = (question, enemyPool, canvas, player) => {
       //Initial starting position
       invader.y = 0;
       invader.x = Math.floor(Math.random() * canvas.width);
-
       //Increase the speed?
       if (invader.dy < 5) {
         invader.dy += 0.5
         if (invader.dy > 2) {
           invader.dx = Math.floor(Math.random() * -3) + 2
+          
         }
       }
     }
