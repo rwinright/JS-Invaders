@@ -1,6 +1,8 @@
 import { keyPressed } from 'kontra';
 
-const shooty = (player, bulletPool) => {
+const shooty = (player, bulletPool, audio) => {
+
+  let laser = audio[0];
 
   if(keyPressed("z")){ //Set gun to truthy or falsy 
     player.gunStatus = !player.gunStatus
@@ -16,17 +18,17 @@ const shooty = (player, bulletPool) => {
       anchor: {x:0.5, y:0.5},
       height: 20,
       dy: -4,
-      ttl: Infinity,
+      ttl: Infinity
     })
   }
 
   //Track objects that have not expired.
   let b = bulletPool.getAliveObjects();
   
-  //Set the "Time To Live" to 0 to refresh the pool count.
+  //Set the "Time To Live" to 0 to refresh the bullet pool count.
   b.forEach((blt) => {
-    if (blt.y <= 0 /*|| blt.collidesWith(player) Change to enemy block later */) {
-      blt.ttl = 0; //Destroy the bullet
+    if (blt.y <= 0) {
+      blt.ttl = 0; //Destroy the bullet 
     }
   })
 }
