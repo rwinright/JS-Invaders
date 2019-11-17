@@ -29,6 +29,11 @@ If you want to have a look at the game as it's being built and play with it, it'
 - Z to switch your bullets
   * Green bullets are truthy
   * Red bullets are falsy
+  
+ #### For development purposes: 
+- D will open the debug mode
+ - The player's DX and DY (Player's directional velocity) is show in the top-left.
+ - The mouse X and Y pointer positioning will be shown hovering next to the mouse itself.
 
  ## For anyone looking to contribute or just run the game
 
