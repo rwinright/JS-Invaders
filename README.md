@@ -49,6 +49,7 @@ If you want to have a look at the game as it's being built and play with it, it'
 1. Need parallax scrolling background. Prefer the star positions to be randomized and scroll top-to-bottom.
 2. Instruction manual in the website.
 3. I need some (better) mobile responsive styling to resize the canvas for mobile phones. 
+ 3.5 Need on-screen controls for mobile.
 4. Build out a page in the app for a leaderboard (2.0 objective).
 5. Need more JS argument-style questions!
   - Matter of fact, I need a database full of them?
