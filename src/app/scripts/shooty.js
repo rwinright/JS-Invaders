@@ -19,7 +19,8 @@ const shooty = (player, bulletPool, audio) => {
       height: 20,
       dy: -4,
       ttl: Infinity
-    })
+    });
+    laser.play();
   }
 
   //Track objects that have not expired.
