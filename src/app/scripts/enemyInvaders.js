@@ -30,7 +30,6 @@ const enemyInvaderController = (question, enemyPool, canvas) => {
         invader.dy += 0.5
         if (invader.dy > 2) {
           invader.dx = Math.floor(Math.random() * -3) + 2
-          
         }
       }
     }
