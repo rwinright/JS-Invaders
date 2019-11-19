@@ -30,8 +30,8 @@ const bulletCollision = (invaderPool, bulletPool, player, audio) => {
           if(bullet.bulletType === invader.questionType){
             //If the question's right, destroy the invader.
             invader.ttl = 0;
+            //Play that explody noise!
             explosion.play();
-
           } else {
             //Do something if the answer bullet was wrong?
           }
