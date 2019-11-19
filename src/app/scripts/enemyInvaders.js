@@ -1,4 +1,7 @@
-const enemyInvaderController = (question, enemyPool, canvas) => {
+const enemyInvaderController = (question, enemyPool, canvas, audio) => {
+  //TODO: The audio is added, but this should be in the bullet collision. 
+  //Might be useful for the enemy movement sounds.
+
 
   enemyPool.get({
     x: Math.floor(Math.random() * canvas.width), //Randomly set this with a random value generator
@@ -30,7 +33,6 @@ const enemyInvaderController = (question, enemyPool, canvas) => {
         invader.dy += 0.5
         if (invader.dy > 2) {
           invader.dx = Math.floor(Math.random() * -3) + 2
-          
         }
       }
     }

@@ -5,6 +5,7 @@ import shooty from './scripts/shooty';
 import textMaker from './scripts/textMaker';
 import enemyInvaderController from './scripts/enemyInvaders'
 import bulletCollision from './scripts/checkBulletEnemyCollision';
+import { prototype } from 'events';
 
 //Image assets
 setImagePath("src/app/assets/sprites"); 
@@ -89,7 +90,7 @@ load(
           answer: false
         }];
 
-        enemyInvaderController(dummyData[0], enemyPool, canvas, context)
+        enemyInvaderController(dummyData[0], enemyPool, canvas, [audioAssets.Laser, audioAssets.Explosion])
         enemyTimer = 0;
       }
 
@@ -99,7 +100,7 @@ load(
       enemies = enemyPool.getAliveObjects();
 
       //Check bullet/enemy collisions
-      bulletCollision(enemyPool, bulletPool, player);
+      bulletCollision(enemyPool, bulletPool, player, [audioAssets.Laser, audioAssets.Explosion]);
 
       //Toggle debug tools
       let pressedState = false;

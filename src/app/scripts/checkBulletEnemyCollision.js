@@ -1,4 +1,4 @@
-const bulletCollision = (invaderPool, bulletPool, player) => {
+const bulletCollision = (invaderPool, bulletPool, player, audio) => {
 
   let bullets = [];
   let invaders = [];
@@ -6,6 +6,8 @@ const bulletCollision = (invaderPool, bulletPool, player) => {
   bullets = bulletPool.getAliveObjects();
   invaders = invaderPool.getAliveObjects();
 
+  //Good ol' explosion sounds!
+  const explosion = audio[1];
   //If there are items in the invaders array, it will be true.
   //Empty arrays are always "falsy" - so this block of code will only run if there's items available.
   // Prevents annoying error messages.
@@ -28,6 +30,8 @@ const bulletCollision = (invaderPool, bulletPool, player) => {
           if(bullet.bulletType === invader.questionType){
             //If the question's right, destroy the invader.
             invader.ttl = 0;
+            //Play that explody noise!
+            explosion.play();
           } else {
             //Do something if the answer bullet was wrong?
           }
