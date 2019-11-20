@@ -39,7 +39,7 @@ If you want to have a look at the game as it's being built and play with it, it'
 
  1. Fork (or clone) the project.
  2. NPM Install to get the required node modules.
- 3. Run `NPM Run Build` from the terminal to launch a server.
+ 3. Run `NPM start` from the terminal to launch a server.
  4. Submit your pull request and I'll review it and maybe add it in or at least give feedback on it! 
  5. Have fun!
 
@@ -52,11 +52,11 @@ If you want to have a look at the game as it's being built and play with it, it'
  3.5 Need on-screen controls for mobile.
 4. Build out a page in the app for a leaderboard (2.0 objective).
 5. Need more JS argument-style questions!
-  - Matter of fact, I need a database full of them?
-  - If I get that, I need to randomly pluck results out of said database.
+   - Matter of fact, I need a database full of them?
+   - If I get that, I need to randomly pluck results out of said database.
 6. ... More ideas/programming languages support for questions?
 7. Need a graphical assets overhaul.
-8. Need sound effects!
+8. ~~Need sound effects!~~
 9. Difficulty levels.
 10. Levels in general... 
 11. Pause menu/capability
