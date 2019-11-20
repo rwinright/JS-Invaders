@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "file-loader": "^4.2.0",
-    "firebase": "^7.3.0",
+    "firebase": "^7.4.0",
     "kontra": "^6.9.0"
   }
 }
