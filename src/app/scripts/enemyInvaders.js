@@ -18,13 +18,12 @@ const enemyInvaderController = (question, enemyPool, canvas, audio) => {
   })
 
   let eInvader = enemyPool.getAliveObjects();
-  let lastInvader = eInvader[eInvader.length - 1];
 
   eInvader.forEach((invader) => { //Loop through and apply to every new 
     //Make sure the dude doesn't go out of bounds.
     invader.position.clamp(0 + invader.width / 2, 0 + invader.height / 2, canvas.width - invader.width / 2, canvas.height + invader.height / 2);
 
-    if (lastInvader.y >= canvas.height - lastInvader.height / 2) {
+    if (invader.y >= canvas.height - invader.height / 2) {
       //Initial starting position
       invader.y = 0;
       invader.x = Math.floor(Math.random() * canvas.width);
