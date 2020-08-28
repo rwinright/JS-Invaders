@@ -5,7 +5,6 @@ import shooty from './scripts/shooty';
 import textMaker from './scripts/textMaker';
 import enemyInvaderController from './scripts/enemyInvaders'
 import bulletCollision from './scripts/checkBulletEnemyCollision';
-import { prototype } from 'events';
 
 //Image assets
 setImagePath("src/app/assets/sprites"); 
